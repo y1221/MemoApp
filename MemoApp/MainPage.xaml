@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="MemoApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MemoApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.BottomAppBar>
+        <CommandBar ClosedDisplayMode="Minimal">
+            <!--プライマリーコマンド定義-->
+            <AppBarButton x:Name="btnNew" Label="新規作成" Icon="Document"/>
+            <AppBarButton x:Name="btnOpen" Label="開く" Icon="OpenFile"/>
+            <AppBarButton x:Name="btnSave" Label="保存" Icon="Save"/>
+            <AppBarSeparator/>
+            <AppBarButton x:Name="btnCut" Label="切り取り" Icon="Cut"/>
+            <AppBarButton x:Name="btnCopy" Label="コピー" Icon="Copy"/>
+            <AppBarButton x:Name="btnPaste" Label="貼り付け" Icon="Paste"/>
+
+            <!--セカンダリーコマンド定義-->
+            <!--<CommandBar.SecondaryCommands>
+                
+            </CommandBar.SecondaryCommands>-->
+
+            <!--コンテンツ定義-->
+            <!--<CommandBar.Content>-->
+                <!--<Grid/>
+            </CommandBar.Content>-->
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid>
+        
+
+    </Grid>
+</Page>
