@@ -32,7 +32,10 @@
     </Page.BottomAppBar>
 
     <Grid>
-        
-
+        <TextBox x:Name="txtMemo" 
+                 Margin="5,5,5,5" 
+                 TextWrapping="Wrap" 
+                 ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"/>
     </Grid>
 </Page>
