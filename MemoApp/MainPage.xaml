@@ -12,7 +12,7 @@
         <CommandBar ClosedDisplayMode="Minimal">
             <!--プライマリーコマンド定義-->
             <AppBarButton x:Name="btnNew" Label="新規作成" Icon="Document"/>
-            <AppBarButton x:Name="btnOpen" Label="開く" Icon="OpenFile"/>
+            <AppBarButton x:Name="btnOpen" Label="開く" Icon="OpenFile" Click="btnOpen_Click"/>
             <AppBarButton x:Name="btnSave" Label="保存" Icon="Save" Click="btnSave_Click"/>
             <AppBarSeparator/>
             <AppBarButton x:Name="btnCut" Label="切り取り" Icon="Cut"/>

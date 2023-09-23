@@ -7,6 +7,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -58,6 +59,41 @@ namespace MemoApp
                 // txtMemoの内容をファイルに保存する
 
                 await FileIO.WriteTextAsync(file, txtMemo.Text);
+            }
+        }
+
+        // ********************
+        // 開く処理
+        // ********************
+        private async void btnOpen_Click(object sender, RoutedEventArgs e)
+        {
+            var filePicker = new FileOpenPicker();
+
+            // 初期フォルダ
+            filePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+
+            // サポートするファイルの拡張子
+            filePicker.FileTypeFilter.Add(".txt");
+            filePicker.FileTypeFilter.Add(".csv");
+
+            //主処理
+            StorageFile file = await filePicker.PickSingleFileAsync();
+
+            if (file != null)
+            {
+                // [開く]ボタンが押された場合（fileがnullでない）
+                // ファイルの内容をtxtMemoに書き出す
+
+                try
+                {
+                    string text = await FileIO.ReadTextAsync(file);
+                    txtMemo.Text = text;
+                }
+                catch (FileNotFoundException ex)
+                {
+                    await new MessageDialog(ex.Message, "エラー").ShowAsync();
+                }
+
             }
         }
     }
