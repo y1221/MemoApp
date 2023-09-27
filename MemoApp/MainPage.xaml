@@ -16,7 +16,7 @@
             <AppBarButton x:Name="btnSave" Label="保存" Icon="Save" Click="btnSave_Click"/>
             <AppBarSeparator/>
             <AppBarButton x:Name="btnCut" Label="切り取り" Icon="Cut"/>
-            <AppBarButton x:Name="btnCopy" Label="コピー" Icon="Copy"/>
+            <AppBarButton x:Name="btnCopy" Label="コピー" Icon="Copy" Click="btnCopy_Click"/>
             <AppBarButton x:Name="btnPaste" Label="貼り付け" Icon="Paste"/>
 
             <!--セカンダリーコマンド定義-->

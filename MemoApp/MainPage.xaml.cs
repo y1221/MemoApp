@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -95,6 +96,23 @@ namespace MemoApp
                 }
 
             }
+        }
+
+        // ********************
+        // コピー処理
+        // ********************
+        private void btnCopy_Click(object sender, RoutedEventArgs e)
+        {
+            DataPackage dtPkg = new DataPackage();
+
+            // クリップボード操作
+            dtPkg.RequestedOperation = DataPackageOperation.Copy;
+
+            // txtMemoで選択されているテキストをクリップボードにセットする
+            dtPkg.SetText(txtMemo.SelectedText);
+
+            // クリップボードにデータをセットする
+            Clipboard.SetContent(dtPkg);
         }
     }
 }
