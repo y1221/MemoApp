@@ -142,5 +142,17 @@ namespace MemoApp
             // 切り取り前と同じ位置にカーソルをセットする
             txtMemo.SelectionStart = startPos;
         }
+
+        // ********************
+        // 貼り付け処理
+        // ********************
+        private async void btnPaste_Click(object sender, RoutedEventArgs e)
+        {
+            // クリップボードから文字列を取得する
+            string strMemo = await Clipboard.GetContent().GetTextAsync();
+
+            // txtMemoのカーソルの位置に挿入する
+            txtMemo.Text = txtMemo.Text.Insert(txtMemo.SelectionStart, strMemo);
+        }
     }
 }
