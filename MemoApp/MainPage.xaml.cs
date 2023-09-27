@@ -154,5 +154,26 @@ namespace MemoApp
             // txtMemoのカーソルの位置に挿入する
             txtMemo.Text = txtMemo.Text.Insert(txtMemo.SelectionStart, strMemo);
         }
+
+        // ********************
+        // 新規作成処理
+        // ********************
+        private async void btnNew_Click(object sender, RoutedEventArgs e)
+        {
+            var dlgConfirm = new ContentDialog()
+            {
+                Title = "警告",
+                Content = "新規作成をすると現在の内容が消えてしまいます。\nよろしいですか？",
+                PrimaryButtonText = "OK",
+                SecondaryButtonText = "Cancel"
+            };
+
+            dlgConfirm.PrimaryButtonClick += (s, args) =>
+            {
+                txtMemo.Text = string.Empty;
+            };
+
+            await dlgConfirm.ShowAsync();
+        }
     }
 }
