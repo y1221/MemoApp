@@ -114,5 +114,33 @@ namespace MemoApp
             // クリップボードにデータをセットする
             Clipboard.SetContent(dtPkg);
         }
+
+        // ********************
+        // 切り取り処理
+        // ********************
+        private void btnCut_Click(object sender, RoutedEventArgs e)
+        {
+            DataPackage dtPkg = new DataPackage();
+
+            int startPos = txtMemo.SelectionStart;
+            int selectedLen = txtMemo.SelectionLength;
+
+            // クリップボード操作
+            dtPkg.RequestedOperation = DataPackageOperation.Move;
+
+            // txtMemoで選択されているテキストをクリップボードにセットする
+            dtPkg.SetText(txtMemo.SelectedText);
+
+            // クリップボードにデータをセットする
+            Clipboard.SetContent(dtPkg);
+
+            // 切り取り後の文字列を作成する
+            string strNewMemo = txtMemo.Text.Substring(0, startPos) + txtMemo.Text.Substring(startPos + selectedLen);
+
+            txtMemo.Text = strNewMemo;
+
+            // 切り取り前と同じ位置にカーソルをセットする
+            txtMemo.SelectionStart = startPos;
+        }
     }
 }
